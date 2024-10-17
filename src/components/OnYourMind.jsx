@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { IMG_URL } from "../utils/constants";
 
-export default function OnYourMind() {
-    const [data, setData] = useState([]);
+export default function OnYourMind({data}) {
+   
     const [value, setValue] = useState(10);
-    useEffect(() => {
-      fetchData();
-    }, []);
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING#"
-      );
-      const result = await response.json();
-      // console.log(result?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-      setData(result?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-    };
+    
     const handlePrev = () => {
       // TODO: Implement previous image functionality
+      
       setValue((prev) => prev - 20);
     };
     const handleNextv = () => {
